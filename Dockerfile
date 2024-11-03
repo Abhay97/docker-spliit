@@ -10,7 +10,8 @@ FROM node:${NODE_VERSION}-alpine${ALPINE_VERSION} AS base
 RUN apk --update --no-cache add ca-certificates openssl
 WORKDIR /usr/app
 ARG SPLIIT_VERSION
-ADD "https://github.com/spliit-app/spliit.git#${SPLIIT_VERSION}" .
+# ADD "https://github.com/spliit-app/spliit.git#${SPLIIT_VERSION}" .
+ADD "https://github.com/sebiweise/spliit.git#feature/custom_openai_url" .
 
 FROM base AS build
 RUN npm ci --ignore-scripts
